@@ -1,5 +1,6 @@
 #include <curl/curl.h>
 #include "systems.h"
+#include "api.h"
 
 void send_data_to_server(const char *url, const char *data) {
     CURL *curl = curl_easy_init();
