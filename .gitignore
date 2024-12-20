@@ -50,9 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
 # Node.js
 node_modules/
 dist/
+npm-debug.log
+yarn-error.log
 
 # Logs
 logs
@@ -78,13 +81,6 @@ dist/
 .dockerignore
 Dockerfile
 docker-compose.yml
-
-# npm
-npm-debug.log
-yarn-error.log
-
-# Visual Studio Code
-.vscode/
 
 # macOS
 .DS_Store
