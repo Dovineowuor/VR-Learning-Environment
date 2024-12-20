@@ -1,110 +1,116 @@
+___
 # VR Learning Environment: Revolutionizing Education Through Immersive Learning
 
-Welcome to the **VR Learning Environment**—the next frontier in education technology. We are pioneering a revolution in learning by integrating immersive virtual reality (VR) with interactive content, enhancing engagement, retention, and overall learning outcomes. This project aims to transform traditional educational paradigms, making learning more interactive, hands-on, and effective for all.
+Welcome to the **VR Learning Environment**, a new frontier in education technology. We are pioneering this revolution in learning by bringing together immersive virtual reality (VR) with interactive content for better engagement, retention, and overall learning outcomes. This project will transform educational paradigms into traditional learning, making it far more interactive, hands-on, and effective for any and all.
 
 ## Table of Contents
-- [Overview](#overview)
-- [Why VR?](#why-vr)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+Overview
+ Why VR?
+ Features
+ Installation
+ Usage
+ Contributing
+ License
+ Contact
 
-## Overview
+Overview
 
-The **VR Learning Environment** is not just an educational platform—it’s a complete paradigm shift. By harnessing the power of VR, we create an engaging and interactive learning experience that moves beyond passive consumption to active participation. Imagine students not just reading textbooks or watching videos, but interacting with 3D models, exploring virtual environments, and solving real-world problems—all within a fully immersive VR experience.
+The **VR Learning Environment** is not just an educational platform but a paradigm shift. Using the power of VR, we create an engaging and interactive learning experience that moves beyond passive consumption to active participation. Imagine students not just reading textbooks or watching videos but interacting with 3D models, exploring virtual environments, and solving real-world problems-all within a fully immersive VR experience.
 
 ## Why VR?
 
 Virtual reality offers unparalleled opportunities for learning:
 - **Enhanced Engagement**: VR immerses students in an interactive, 3D world that makes learning fun and engaging. It stimulates multiple senses, fostering a deeper connection with the content.
-- **Improved Retention**: Research shows that learners retain information better when they experience it in an interactive and immersive environment. VR allows learners to manipulate objects, navigate complex systems, and engage with content in a way that reinforces understanding.
-- **Customizable Content**: With our platform, educators can easily create and customize learning modules tailored to their students’ needs, from basic concepts to advanced topics.
-- **Cross-Platform Support**: Our VR environment is compatible with a range of VR headsets and platforms, making it accessible to a broad user base.
+- **Enhanced Retention**: Studies have found that learners retain information much better when they experience it interactively and in an immersive environment. VR lets learners manipulate objects, navigate through complex systems, and engage with content in a manner that reinforces understanding.
+- **Customizable Content**: On our platform, educators can easily create and customize learning modules tailored to the needs of their students-from basic concepts to advanced topics.
+Cross-Platform Support: From high-end VR headsets to several VR platforms, our virtual reality environment supports them all and is thus accessible to a wide range of users.
 
 ## Features
 
-- **Immersive Learning**: Dive into a fully 3D environment where students can manipulate objects, explore virtual worlds, and interact with content in real-time.
-- **Interactive Modules**: Engage with hands-on learning modules that promote active participation and practical understanding of subjects.
-- **Customizable Content**: Create and integrate new learning materials with ease, tailored to different educational needs and subject areas.
-- **Cross-Platform Support**: Compatible with a variety of VR headsets and platforms, ensuring accessibility for all.
-- **Performance Optimized**: Designed in C for optimal performance and low latency, ensuring a smooth and responsive learning experience.
-
+Immersive Learning: Experience the all-3D virtual world in which the manipulation of objects, navigation in the virtual world, and interaction with content can be performed by students in real-time.
+Interactive Modules: Learn with hands-on, engaging modules that foster active learning with an emphasis on practical learning of concepts.
+- **Custom Content**: Easily develop and integrate new learning content targeted towards specific learning requirements and topics.
+- **Cross-Platform Compatibility**: Compatible with numerous VR headsets and platforms for the maximum amount of accessibility by any and all.
+- **Performance Optimized**: C is used for low-level, performance-optimized development to assure smooth, responsive interactions.
+ 
 ## Installation
 
-Get started with the VR Learning Environment in just a few simple steps:
+Setup the VR Learning Environment with these few easy steps:
 
 1. **Clone the repository**:
-    ```sh
+```bash
     git clone https://github.com/yourusername/VR-Learning-Environment.git
     cd VR-Learning-Environment
-    ```
+```
+2. **Dependencies Installation**:
+    Ensure that all the required VR SDKs and libraries are properly installed. For the detailed installation guide, see the `docs/INSTALL.md`.
 
-2. **Install dependencies**:
-    Ensure all necessary VR SDKs and libraries are installed. Refer to the `docs/INSTALL.md` for detailed instructions.
+3. **Project Building**:    
 
-3. **Build the project**:
     ```sh
-    make
+    gcc -I src/core -I src/systems -I src/ui -o VRLearning src/main.c src/core/*.c src/systems/*.c src/ui/*.c -lGL -lGLEW -lglfw -lcurl -lm -ljson-c
     ```
-
+    
 4. **Run the application**:
     ```sh
-    ./vr_learning_environment
+   ./VRLearning
     ```
+    
+   This will start the application in a windowed mode, which allows for local rendering without the use of a VR headset.
 
 ## Usage
 
-Once the application is running, you can navigate through the VR learning modules using your VR headset. Experience immersive learning by interacting with 3D models, solving puzzles, and participating in engaging educational activities. The platform is designed to be intuitive and user-friendly, allowing both educators and learners to focus on the content.
+Once running, an application can be used by moving through VR learning modules with the mouse and keyboard. Get immersive learning, interact with 3D models, solve interactive puzzles, and participate in a range of engaging learning activities. The platform is designed to be intuitive and user-friendly so educators and learners can simply focus on the content.
+
+### Local Rendering Tips:
+- **Pendulum GUI Rendering**: The pendulum GUI should be rendered in a window, locally. You should be able to click on the pendulum to start a swing or even drag it around to simulate interaction via your mouse.
+- **Input Handling**: The interaction logic should be changed to handle mouse and keyboard input instead of VR controllers. Use SDL2 or GLFW to handle the window events and process the input.
 
 ## Contributing
 
-We are always looking for passionate individuals and organizations to join our mission to revolutionize education. Whether you’re a developer, designer, educator, or a VR enthusiast, your contribution can make a significant impact. Here’s how you can get involved:
+We welcome passionate individuals and organizations with innovative ideas to join our mission to change the face of education. Whether you are a developer, designer, educator, or a VR enthusiast, your contribution can make all the difference. Here is how you can get involved:
 
 1. **Fork the repository**:
     Click the "Fork" button at the top right corner of this page to create your copy of the repository.
 
 2. **Clone your fork**:
-    ```sh
-    git clone https://github.com/yourusername/VR-Learning-Environment.git
-    cd VR-Learning-Environment
+    ```bash
+        git clone https://github.com/yourusername/VR-Learning-Environment.git
+        cd VR-Learning-Environment
     ```
-
+    
 3. **Create a new branch**:
-    ```sh
+    ```bash
     git checkout -b feature/your-feature-name
     ```
-
+    
 4. **Make your changes**:
-    Implement new features, fix bugs, or optimize existing modules.
-
+Add features, fix bugs, or optimize modules existing at the moment.
+    
 5. **Commit your changes**:
-    ```sh
+    ```bash
     git commit -m "Add feature/your-feature-name"
     ```
-
+    
+    
 6. **Push to your fork**:
     ```sh
     git push origin feature/your-feature-name
     ```
-
+    
 7. **Create a pull request**:
-    Submit your changes back to the main repository for review.
+Push your changes back to the main repository for review.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the Apache License, Version 2.0. See the LICENSE file for more details.
 
 ## Contact
 
 For inquiries, questions, or collaboration opportunities, please contact the project maintainers at [owuordove@gmail.com].
 
-Join us in this transformative journey to revolutionize education and empower learners worldwide. The **VR Learning Environment** is not just a platform—it’s the future of learning.
+Join this transformative journey to change how the world learns and empower learners everywhere. The **VR Learning Environment** is more than a platform-it's the future of learning.
 
-Thank you for being a part of this exciting project. We look forward to your contributions and feedback as we build a more engaging, interactive, and effective way to learn!
+Thank you for being a part of this exciting project. We look forward to your contributions and feedback while building a more engaging, interactive, and effective way to learn!
 
 ---
-
-This readme now effectively pitches the VR Learning Environment as a transformative educational tool, highlighting the benefits of VR and encouraging contributions and collaboration.
