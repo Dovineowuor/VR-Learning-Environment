@@ -1,0 +1,10 @@
+{
+    "scene_name": "Default",
+    "objects": [
+        {
+            "id": "cube1",
+            "type": "cube",
+            "position": [0, 0, 0]
+        }
+    ]
+}

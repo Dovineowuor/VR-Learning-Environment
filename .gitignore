@@ -1,0 +1,38 @@
+# Node.js
+node_modules/
+dist/
+
+# Logs
+logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+
+# Build files
+build/
+dist/
+
+# Local environment variables
+.env
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# npm
+npm-debug.log
+yarn-error.log
+
+# Visual Studio Code
+.vscode/
+
+# macOS
+.DS_Store
