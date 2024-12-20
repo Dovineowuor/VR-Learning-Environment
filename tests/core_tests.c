@@ -1,4 +1,4 @@
-#include "../src/core.h" // Update the path to the correct location of core.h
+#include "core.h" // Update the path to the correct location of core.h
 #include <assert.h>
 
 void test_scene_loader() {
