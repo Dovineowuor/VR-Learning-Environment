@@ -50,7 +50,7 @@ Getting started with the VR Learning Environment is as simple as a few steps:
 1. **Clone Repository:**
 
 ```sh
-git clone https://github.com/yourusername/VR-Learning-Environment.git
+git clone https://github.com/dovineowuor/VR-Learning-Environment.git
 ```
 
 2. **Dependencies Installation:**
@@ -58,13 +58,18 @@ git clone https://github.com/yourusername/VR-Learning-Environment.git
 The project depends on several libraries for handling VR rendering, AI interactions, and simulations. You can install them using the following commands:
 
 ```sh
-cd VR-Learning-Environment
-# If you are using a virtual environment (recommended)
-python3 -m venv venv
-source venv/bin/activate
+# Update package list
+sudo apt-get update
 
-# Install required Python dependencies
-pip install -r requirements.txt
+# Install libraries for VR rendering
+sudo apt-get install -y libglew-dev libsdl2-dev
+
+# Install libraries for AI interactions
+sudo apt-get install -y python3-pip
+pip3 install tensorflow keras
+
+# Install libraries for simulations
+sudo apt-get install -y libbullet-dev
 ```
 
 3. **Setup Virtual Reality Environment:**
@@ -81,8 +86,21 @@ Once dependencies have installed and VR hardware setup run the application:
 
 ```sh
 # Start the VR Learning Environment
-./run_vr_learning_environment.sh
+./scripts/build.sh
 ```
+
+```sh
+# Run the Build Localy
+./VRLearning
+```
+
+4.1. **Deploying the app Locally**
+```sh
+    ./scripts/build.sh
+```
+then you can now easily run your app by openning your terminal anywhere by entering on terminal:
+
+[VRLearning](VRLearning)
 
 ## Usage
 
@@ -99,15 +117,17 @@ We welcome community contributions! If you want to contribute to improving the V
 3. Write tests for your changes.
 4. Send a pull request with a clear description of your changes.
 
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **Apache License, Version 2.0, January 2004**- see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
 For inquiries, suggestions, or any questions, feel free to reach out to us at:
 
 Email: owuordove@gmail.com
+
 GitHub: [D.Engineer Dovine K.](https://github.com/dovineowuor)
 
 
