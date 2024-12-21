@@ -128,7 +128,7 @@ For inquiries, suggestions, or any questions, feel free to reach out to us at:
 
 Email: owuordove@gmail.com
 
-GitHub: [D.Engineer Dovine K.](https://github.com/dovineowuor)
+GitHub: [S.Engineer Dovine K.](https://github.com/dovineowuor)
 
 
 ---
