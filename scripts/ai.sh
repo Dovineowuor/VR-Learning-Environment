@@ -10,16 +10,18 @@ import torch
 import math
 import time
 import numpy as np
-# from dotenv import load_dotenv
-# import os
-from huggingface_hub import login
-from google.colab import userdata
-# load_dotenv()
+from dotenv import load_dotenv
+import os
+# from huggingface_hub import login
+# from google.colab import userdata
+load_dotenv()
 
 # Login to huggingface
 # Hugging Face access token 'access-token'
 # login(token=userdata.get('HF_TOKEN'), add_to_git_credential=True)  # Disable redundant login sessions
-login(token= os.getenv('HF_TOKEN'), add_to_git_credential=True) # Disable redundant login sessions
+
+login(token=os.getenv('HF_TOKEN'), add_to_git_credential=True)  # Disable redundant login sessions
+
 
 # Load the Llama-2-7b model and tokenizer
 model_id = "NousResearch/Llama-2-7b-chat-hf"
@@ -40,6 +42,13 @@ def update_pendulum(angle, angular_velocity, angular_acceleration, length, gravi
 
     # Apply damping
     angular_velocity *= 0.99
+
+    # Adding safeguard to prevent runaway values
+    if angle > 10:  # Limit angle to avoid too large values
+        angle = 10
+    if angular_velocity > 50:  # Limit angular velocity to avoid infinite speeds
+        angular_velocity = 50
+
     return angle, angular_velocity, angular_acceleration
 
 # Function to generate the AI explanation with dynamic values
