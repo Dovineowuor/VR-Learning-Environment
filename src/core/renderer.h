@@ -8,8 +8,9 @@ void initialize_window();
 void setup_shaders();
 void setup_vertex_data();
 void render_ball();
-void render_pendulum();
+void render_pendulum(float angle, float length); // Update the function declaration
 void render_scene();
+void start_render_loop();
 void cleanup_renderer();
 
 extern GLFWwindow *window;
