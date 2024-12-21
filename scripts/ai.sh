@@ -10,6 +10,16 @@ import torch
 import math
 import time
 import numpy as np
+# from dotenv import load_dotenv
+# import os
+from huggingface_hub import login
+from google.colab import userdata
+# load_dotenv()
+
+# Login to huggingface
+# Hugging Face access token 'access-token'
+# login(token=userdata.get('HF_TOKEN'), add_to_git_credential=True)  # Disable redundant login sessions
+login(token= os.getenv('HF_TOKEN'), add_to_git_credential=True) # Disable redundant login sessions
 
 # Load the Llama-2-7b model and tokenizer
 model_id = "NousResearch/Llama-2-7b-chat-hf"
@@ -19,7 +29,7 @@ chat_pipeline = pipeline("text-generation", model=model, tokenizer=tokenizer)
 
 # Function to generate text using the model
 def generate_text(prompt):
-    result = chat_pipeline(prompt, max_length=150, num_return_sequences=1)
+    result = chat_pipeline(prompt, max_length=150, num_return_sequences=1, truncation=True)
     return result[0]['generated_text']
 
 # Function to update the pendulum's state based on dynamic parameters
@@ -58,16 +68,21 @@ def run_cli_mode():
     gravity = float(input("Enter gravitational acceleration (in m/s^2, e.g., 9.8): "))
     deltaTime = float(input("Enter time step (e.g., 0.016 for 60 FPS): "))
     
+    # Initialize angular_acceleration to 0.0 
+    angular_acceleration = 0.0  
+    
     # Simulate for 10 time steps
     for i in range(10):
         angle, angular_velocity, angular_acceleration = update_pendulum(angle, angular_velocity, angular_acceleration, length, gravity, deltaTime)
         ai_explanation(angle, angular_velocity, angular_acceleration, length, gravity)
         print(f"Time step {i}: Angle = {angle:.2f} radians")
+        time.sleep(deltaTime)
 
 # Main function
 if __name__ == "__main__":
     # Run in CLI mode to take dynamic inputs
     run_cli_mode()
+
 EOF
 
 # Make the script executable
