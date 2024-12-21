@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h> // Include this header for sin and cos
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <GL/glut.h>
@@ -33,18 +34,19 @@ void cleanup_renderer() {
     glfwTerminate();
 }
 
-void render_pendulum() {
-    printf("Rendering pendulum...\n");
-    glPushMatrix();
-    glTranslatef(0.5, 0.5, 0.0);
+void render_pendulum(float angle, float length) {
+    float x = length * sin(angle); // Convert polar to Cartesian
+    float y = -length * cos(angle);
+
     glBegin(GL_LINES);
-    glVertex2f(0.0, 0.0);
-    glVertex2f(0.0, -0.3);
+    glVertex2f(0.0f, 0.0f); // Anchor point
+    glVertex2f(x, y);       // Bob position
     glEnd();
-    glTranslatef(0.0, -0.3, 0.0);
-    glColor3f(1.0, 0.0, 0.0); // Red ball at the end of the pendulum
-    glutWireSphere(0.05, 20, 20); // Use glutWireSphere instead of glutSolidSphere
-    glPopMatrix();
+
+    glPointSize(10.0f);
+    glBegin(GL_POINTS);
+    glVertex2f(x, y); // Bob
+    glEnd();
 }
 
 void render_scene() {
@@ -54,7 +56,7 @@ void render_scene() {
     glTranslatef(0.0, 0.0, -2.0);
 
     render_ball();
-    render_pendulum();
+    render_pendulum(0.5f, 1.0f); // Example values for angle and length
     // Other rendering code
 }
 
