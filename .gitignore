@@ -86,3 +86,4 @@ docker-compose.yml
 .DS_Store
 pendulum_simulation.py
 *pendulum_venv
+*.env
