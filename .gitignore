@@ -84,3 +84,5 @@ docker-compose.yml
 
 # macOS
 .DS_Store
+pendulum_simulation.py
+*pendulum_venv
