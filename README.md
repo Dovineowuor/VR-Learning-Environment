@@ -108,7 +108,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For inquiries, suggestions, or any questions, feel free to reach out to us at:
 
 Email: owuordove@gmail.com
-GitHub: Your GitHub profile URL
+GitHub: [D.Engineer Dovine K.](https://github.com/dovineowuor)
+
 
 ---
 
