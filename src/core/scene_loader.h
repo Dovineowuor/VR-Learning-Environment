@@ -16,7 +16,7 @@ void initialize_window();
 void setup_shaders();
 void setup_vertex_data();
 void render_ball();
-void render_pendulum();
+void render_pendulum(float angle, float length);
 void render_scene();
 void start_render_loop();
 void initialize_objects();
