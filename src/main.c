@@ -97,16 +97,82 @@ void key_callback(GLFWwindow *window, int key, int scancode, int action, int mod
     }
 }
 
+// Global parameters
+double angle, angular_velocity, angular_acceleration, length, gravity, deltaTime;
+
+// Function to update the pendulum state
+void update_pendulum() {
+    angular_acceleration = -(gravity / length) * sin(angle);
+    angular_velocity += angular_acceleration * deltaTime;
+    angle += angular_velocity * deltaTime;
+
+    // Damping factor
+    angular_velocity *= 0.99;
+}
+
+// Function to generate insights and explanations
+void explain_pendulum() {
+    printf("\nAI Explanation:\n");
+    printf("The pendulum has the following parameters:\n");
+    printf("Angle: %.2f radians\n", angle);
+    printf("Angular Velocity: %.2f radians per second\n", angular_velocity);
+    printf("Angular Acceleration: %.2f radians per second^2\n", angular_acceleration);
+    printf("Length: %.2f meters\n", length);
+    printf("Gravity: %.2f m/s^2\n\n", gravity);
+
+    printf("Explanation:\n");
+    if (fabs(angle) > M_PI / 2) {
+        printf("The pendulum is nearing the limits of its swing. Gravity is pulling it back towards the equilibrium position.\n");
+    } else if (fabs(angular_velocity) > 0.1) {
+        printf("The pendulum is in motion, oscillating due to the interplay of gravity and inertia.\n");
+    } else {
+        printf("The pendulum is close to its equilibrium position, where forces balance.\n");
+    }
+}
+
 // Function to run the CLI mode
 void run_cli_mode() {
     printf("Loading scene in CLI mode...\n");
-    printf("Simulating pendulum motion in CLI mode...\n");
 
+    // Get user inputs for parameters
+    printf("Enter initial angle (in radians): ");
+    scanf("%lf", &angle);
+    printf("Enter initial angular velocity (in radians/sec): ");
+    scanf("%lf", &angular_velocity);
+    printf("Enter length of the pendulum (in meters): ");
+    scanf("%lf", &length);
+    printf("Enter gravitational acceleration (in m/s^2): ");
+    scanf("%lf", &gravity);
+    printf("Enter time step (in seconds): ");
+    scanf("%lf", &deltaTime);
+
+    printf("\nSimulating pendulum motion in CLI mode...\n");
+
+    // Simulation loop with dynamic user inputs
     for (int i = 0; i < 10; i++) {
         update_pendulum();
         printf("Time step %d: Angle = %.2f radians\n", i, angle);
+        explain_pendulum();
+
+        // Allow user to adjust parameters dynamically
+        char choice;
+        printf("\nDo you want to update parameters? (y/n): ");
+        scanf(" %c", &choice);
+        if (choice == 'y' || choice == 'Y') {
+            printf("Enter new angle (in radians): ");
+            scanf("%lf", &angle);
+            printf("Enter new angular velocity (in radians/sec): ");
+            scanf("%lf", &angular_velocity);
+            printf("Enter new length (in meters): ");
+            scanf("%lf", &length);
+            printf("Enter new gravitational acceleration (in m/s^2): ");
+            scanf("%lf", &gravity);
+            printf("Enter new time step (in seconds): ");
+            scanf("%lf", &deltaTime);
+        }
     }
 }
+
 
 int main(int argc, char *argv[]) {
     // Ensure we have at least one argument
